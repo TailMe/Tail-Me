@@ -1,0 +1,56 @@
+{
+  "name": "tail-me-application",
+  "version": "1.0.0",
+  "description": "TailMe Application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "test": "npx mocha --exit --recursive test/"
+  },
+  "engines": {
+    "node": "12.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacksonSabol/Tail-Me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.5",
+    "apicache": "^1.5.2",
+    "axios": "^0.19.0",
+    "base64-arraybuffer": "^0.2.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "bunyan": "^1.8.12",
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.2",
+    "http-errors": "^1.7.3",
+    "if-env": "^1.0.4",
+    "multer": "^1.4.2",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.2",
+    "sharp": "^0.23.3",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.4"
+  }
+}
