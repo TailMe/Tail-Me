@@ -7,7 +7,33 @@ class CircuitBreaker {
         this.cooldownPeriod = 10;
         this.requestTimeout = 1;
     }
-    
+
+    onSuccess(endpoint) {
+        this.initState(endpoint);
+    }
+
+    onFailure(endpoint) {
+        const state = this.state[endpoint];
+        state.failures += 1;
+        if (state.failures > this.failureThreshold) {
+            state.circuit = 'OPEN';
+            state.nextTry = new Date() / 1000 + this.cooldownPeriod;
+            console.log(`ALERT! Circuit for ${endpoint} is in state 'OPEN'`);
+        }
+    }
+
+    canRequest(endpoint) {
+        if (!this.state[endpoint]) this.initState(endpoint);
+        const state = this.states[endpoint];
+        if (state.circuit === 'CLOSED') return true;
+        const now = new Date() / 1000;
+        if (state.nextTry <= now) {
+            state.circuit = 'HALF';
+            return true;
+        }
+        return false;
+    }
+
     initState(endpoint) {
         this.state[endpoint] = {
             failures: 0,
