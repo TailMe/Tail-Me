@@ -4,7 +4,7 @@ const helper = require('../helper');
 
 const should = chai.should();
 const { config } = helper;
-const app = require('../../server/app')(config);
+const app = require('../../server')(config);
 
 chai.use(chaiHttp);
 
