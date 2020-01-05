@@ -16,7 +16,7 @@ const log = config.log();
 
 // const walkers = new Walkers(config);
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({
     // helpers: helpers
